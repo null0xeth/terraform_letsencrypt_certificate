@@ -27,12 +27,12 @@ resource "local_sensitive_file" "le_fullchain" {
     certificate_pem    = acme_certificate.certificate.certificate_pem
     certificate_issuer = acme_certificate.certificate.issuer_pem
   }) #)
-  filename = "../../composition/vault/assets/generated/opt/vault/tls/fullchain.pem"
+  filename = "../assets/generated/opt/vault/tls/fullchain.pem"
 }
 
 resource "local_sensitive_file" "le_privkey" {
   content = templatefile("${path.module}/templates/privkey.tftpl", {
     privkey = acme_certificate.certificate.private_key_pem
-  })                                                                              #)
-  filename = "../../composition/vault/assets/generated/opt/vault/tls/privkey.pem" #"../../composition/vault/assets/generated/opt/vault/tls/privkey.pem"
+  }) #)
+  filename = "../assets/generated/opt/vault/tls/privkey.pem"
 }
